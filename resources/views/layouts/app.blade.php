@@ -32,7 +32,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Laravel Perú
+                   Comunidad Laravel Perú
                 </a>
             </div>
 
