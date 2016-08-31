@@ -13,12 +13,49 @@
 
 use App\Task;
 use Illuminate\Http\Request;
+use App\User;
+
+
+// crear token y almacenar token
+
+Route::get('tarjeta', function(){
+     return View('pagos.tarjeta');
+    
+});
+Route::post('tarjeta', function(Request $request){
+        
+     //r7Onv8G2VthgeYwBTMpnEz0e1dOBZ1rq
+     //nuevo token creado
+     $usuario=User::find('1');
+     $usuario->token=$request->input('token');
+     
+     
+     
+     //Session::put(Request::input('token'));
+     if($usuario->save()){
+         return 'ok';
+     }else{
+        return 'bad';
+     }
+});
+//crear cargo
+
+
+
+Route::get('foo', function(){
+     return View('tarjeta');
+    
+});
+
+//crear 3 planes
+
+
 
 Route::group(['middleware' => ['web']], function () {
     /**
      * Show Task Dashboard
      */
-    Route::get('/', function () {
+    Route::get('/jjj', function () {
         return view('tasks', [
             'tasks' => Task::orderBy('created_at', 'asc')->get()
         ]);
