@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 use App\User;
 
 
+
 // crear token y almacenar token
 
 Route::get('tarjeta', function(){
@@ -28,7 +29,7 @@ Route::post('tarjeta', function(Request $request){
      //nuevo token creado
      $usuario=User::find('1');
      $usuario->token=$request->input('token');
-     
+
      
      
      //Session::put(Request::input('token'));
@@ -37,6 +38,14 @@ Route::post('tarjeta', function(Request $request){
      }else{
         return 'bad';
      }
+
+    // Configurar credencial (API Key)
+    $SECRET_API_KEY = "Ad12344hyhfgX";
+
+// Autenticación
+    $culqi = new Culqi\Culqi(array('api_key' => $SECRET_API_KEY));
+
+
 });
 //crear cargo
 
